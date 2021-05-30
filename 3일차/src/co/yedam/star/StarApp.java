@@ -32,7 +32,9 @@ public class StarApp {
 		}
 	}
 	//나무그리기
-	
+	void drawTitle(String A, int a) {
+		
+	}
 	
 	//"*"*3
 	//(*,10) ---> "**********"

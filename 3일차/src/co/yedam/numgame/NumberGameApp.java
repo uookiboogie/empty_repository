@@ -9,17 +9,30 @@ public class NumberGameApp {
 	
 	void init() {
 		 com=(int)(Math.random()*10)+1;
+		 System.out.println(com);
 	}
 	
 	//사용자 수를 입력
 	void input() {
-		Scanner user = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
+		user =scanner.nextInt();
 	}
 	
 	//높다.낮다 판단 / true false
 	boolean confirm() {
 		//com과 user를 비교해서 같으면 true 리턴
 		//다르면 높다/낮다 출력하고 false 리턴
+		if (com==user){
+			return true;
+		}
+		else if (com>user) {
+			System.out.println("낮다");
+			return false;
+		}
+		else {
+			System.out.println("높다");
+			return false;
+		}
 		
 	}
     void start() {
