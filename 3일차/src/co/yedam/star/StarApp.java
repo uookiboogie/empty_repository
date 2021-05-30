@@ -18,9 +18,9 @@ public class StarApp {
 	}
 	//이등변삼각형
 	void drawEq(int cnt) {
-		for(int i=1; i<=cnt ;i++) {
+		for(int i=1; i<cnt ;i++) {
 			System.out.print(pad(' ',cnt+1-i));//공백
-			System.out.println(pad('#',i*2-1));
+			System.out.println(pad('x',i*2-1));
       	}
 
 	}
@@ -33,8 +33,20 @@ public class StarApp {
 	}
 	//나무그리기
 	void drawTitle(String A, int a) {
-		
+		System.out.println(pad('=',a));
+		System.out.println(A);
+		System.out.println(pad('=',a));
 	}
+
+
+	
+	void drawRect(int cnt) {
+		for(int i=1; i<cnt ;i++) {
+			System.out.print(pad(' ',cnt-1));//공백
+			System.out.println(pad('x',3));
+      	}
+	}
+	
 	
 	//"*"*3
 	//(*,10) ---> "**********"
