@@ -12,14 +12,14 @@ public class BaseBallApp {
 	int c1, c2, c3;
 	int u1, u2, u3;
 	
-	void makeRnd() {
+	public void makeRnd() {
 		while ((c1==c2) ||(c2==c3) || (c3==c1)) {
 			c1= (int)(Math.random()*9+1);
 			c2= (int)(Math.random()*9+1);
 			c3= (int)(Math.random()*9+1);}
 	}
 	
-	void input() {
+	public void input() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("세수를 입력:");
 		u1 = scanner.nextInt();
@@ -27,7 +27,7 @@ public class BaseBallApp {
 		u3 = scanner.nextInt();
 	}
 	
-	void count() {
+	public void count() {
 		 if (c1==u1) {s=s+1;}
 		 if (c1==u2) {b=b+1;}
 		 if (c1==u3) {b=b+1;}
@@ -43,7 +43,7 @@ public class BaseBallApp {
 		 System.out.println();
 	}
 
-	void start() {
+	public void start() {
 		makeRnd();
 		int count =0;
 		int i = 10;

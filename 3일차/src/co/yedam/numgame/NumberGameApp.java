@@ -35,6 +35,12 @@ public class NumberGameApp {
 		}
 		
 	}
+	//게임재시작여부 확인
+//	boolean confirmStart() {
+//		scanner 를 이용해서 정수값 입력
+//		System.out.println("게임을 다시 시작할까요?(y/n)");
+//		char re = scanner.next().charAt(0);
+//		}
     void start() {
     	init();
     	while(true) {
