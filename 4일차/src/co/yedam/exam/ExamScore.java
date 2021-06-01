@@ -17,7 +17,7 @@ public class ExamScore {
 		avg = (kor+his+eng)/3;
 	}
 	boolean isPass() {
-		if (avg>=60 & kor>40 & his>40 & eng>40) {
+		if (avg>=60 && kor>40 && his>40 && eng>40) {
 		return true;}
 		else {
 		return false;}

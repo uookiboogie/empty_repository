@@ -17,7 +17,7 @@ public class Member {
 	}
 	@Override
 	public String toString() {
-		return "Member [name=" + name + ", id=" + id + ", password=" + password + ", age=" + age + "]";
+		return name+"\t"+id+"\t"+password+"\t"+ age ;
 	}
 	
 }

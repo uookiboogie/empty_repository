@@ -28,7 +28,8 @@ public class MemberServiceExample {
 				memberservice.login(id, password);}
 			else if(selectNo==5) {
 				System.out.print("id>");
-				;}
+				String id = scanner.next();
+				memberservice.login(id);}
 			else if(selectNo==6) {
 				run= false;}
 		}

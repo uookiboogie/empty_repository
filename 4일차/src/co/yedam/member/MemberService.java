@@ -28,14 +28,16 @@ public class MemberService {
 	// 회원리스트
 	void printList() {
 		for (int i = 0; i < cnt; i++) {
-			System.out.println(members[i]);
+			System.out.print(i+"\t"+members[i]);
+			System.out.println();
 		}
 	}
 
 	void printMember(int i) {
-		System.out.println(members[i].id);
-		System.out.println(members[i].name);
-		System.out.println(members[i].age);
+		System.out.print(members[i].id+"\t"+ members[i].name +"\t"+ members[i].age+"\n");
+//		System.out.println(members[i].id);
+//		System.out.println(members[i].name);
+//		System.out.println(members[i].age);
 	}
 
 	boolean login(String id, String password) {
@@ -47,7 +49,7 @@ public class MemberService {
 				break;
 			}
 		}
-		if (result==false) {
+		if (result == false) {
 			System.out.println("id 또는 패스워드 틀림");
 		}
 		return result;
@@ -55,6 +57,19 @@ public class MemberService {
 //			return true;}
 //		else {
 //		return false;}
+	}
+
+	boolean login(String id) {
+		boolean result = false;
+		for (int i = 0; i < cnt; i++) {
+			if (id.equals(members[i].id)) {
+				result = true;
+				System.out.print(members[i].id+"\t"+ members[i].name +"\t"+ members[i].age+"\n");
+				break;
+			}
+		}
+		return result;
+
 	}
 
 	void logout(String id) {
