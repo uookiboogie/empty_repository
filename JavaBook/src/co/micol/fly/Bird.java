@@ -1,6 +1,7 @@
 package co.micol.fly;
 
 public class Bird extends Animal implements Flyer{
+	
 	@Override
 	public void run() {
 		//super.run();
