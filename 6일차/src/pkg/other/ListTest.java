@@ -59,7 +59,7 @@ public class ListTest {
 		Scanner scanner;
 		Memo memo = new Memo();
 		memo.title=scanner.next();
-		memo.content=
+		memo.content=scanner.next();
 		list.add(memo);
 	}
 	
@@ -69,6 +69,7 @@ public class ListTest {
 //		listTest.list.add(new Memo("자바시험", "월요일에"));
 //		listTest.list.add(new Memo("자바프로젝트", "멋지게"));
         listTest.insert();
+        
         
 		listTest.selectAll();
 		listTest.findTitle("자바공부");
