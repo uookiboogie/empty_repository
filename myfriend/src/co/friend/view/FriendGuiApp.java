@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import co.friend.access.FriendAccess;
+import co.friend.access.FriendDAO;
 import co.friend.access.FriendList;
 import co.friend.model.Friend;
 
@@ -20,7 +22,8 @@ public class FriendGuiApp extends JFrame{
 	TextField txtName, txtGubun, txtTel;
 	JButton btnInsert, btnUpdate, btnDelete, btnSelectAll, btnFindName;
 	TextArea txtList;
-	FriendList friendList = new FriendList();
+//	FriendList friendList = new FriendList();
+	FriendAccess friendList = new FriendDAO();
 	
 	public FriendGuiApp(){
 		setTitle("친구관리");
@@ -85,10 +88,9 @@ public class FriendGuiApp extends JFrame{
 			friend.setGubun(txtGubun.getText());
 			friend.setName(txtName.getText());
 			friend.setTel(txtTel.getText());
-			friendList.update(friend);
-			
+			friendList.update(friend);			
 			friendList.insert(friend);
-			txtName.setText("click test");
+//			txtName.setText("click test");
 		}		
 	}
 	//등록

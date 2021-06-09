@@ -3,11 +3,14 @@ package co.friend.view;
 import java.util.List;
 
 import co.friend.Util.ScannerUtil;
+import co.friend.access.FriendAccess;
+import co.friend.access.FriendDAO;
 import co.friend.access.FriendList;
 import co.friend.model.Friend;
 
 public class FriendCliApp {
-	FriendList friendList = new FriendList();
+//	FriendList friendList = new FriendList();
+	FriendAccess friendList = new FriendDAO();
 	
 	public void start() {
 		int menunum;
@@ -44,12 +47,15 @@ public class FriendCliApp {
 		}
 	public void update() {
 		Friend friend = new Friend();
+		System.out.print("이름으로 조회, 전화번호 수정>");
 		friend.setName(ScannerUtil.readStr());
+		System.out.print("전화번호를 입력하세요>");
 		friend.setTel(ScannerUtil.readStr());
 		friendList.update(friend);
 		
 	}
 	public void delete() {
+		System.out.print("이름으로 삭제>");
 		String name = ScannerUtil.readStr();
 		friendList.delete(name);
 		

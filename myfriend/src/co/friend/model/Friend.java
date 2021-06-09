@@ -42,7 +42,16 @@ public class Friend {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-
+	@Override
+	public int hashCode() {
+		return this.getGubun().hashCode()+this.getName().hashCode()+this.getTel().hashCode();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Friend f = (Friend) obj;
+		return this.getGubun().equals(f.getGubun()) && this.getName().equals(f.getName()) && this.getTel().equals(f.getTel());
+	}
+	
 	@Override
 	public String toString() {
 		return "Friend [gubun=" + gubun + ", name=" + name + ", tel=" + tel + "]";
