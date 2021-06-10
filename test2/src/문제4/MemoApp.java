@@ -12,11 +12,15 @@ public class MemoApp {
 		int menu =0;
 		Scanner scanner = new Scanner(System.in);
 		do {
-			System.out.println("1.등록  2.날짜로조회  0.종료");
+			System.out.println("1.등록   2.날짜로조회   0.종료");
 			System.out.print("입력>");
 			menu = scanner.nextInt();
-			if(menu==0) break;
-			service[menu].execute(memodata);
+			if(menu<service.length) {
+				if(menu==0) break;
+				service[menu].execute(memodata);
+			}else {
+			 System.out.println("올바른 숫자를 입력해주세요");
+			}
 		}while(true);
 	}
 
