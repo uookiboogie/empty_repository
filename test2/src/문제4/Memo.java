@@ -41,6 +41,8 @@ public class Memo {
 	}
 	@Override
 	public String toString() {
-		return String.format("%20s %20s %20s", date, title, content);
+		return "Memo [no=" + no + ", date=" + date + ", title=" + title + ", content=" + content + "]"; 
+		        //String.format("%20s %20s %20s", date, title, content);
 	}
+
 }

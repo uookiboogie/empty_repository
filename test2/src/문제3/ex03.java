@@ -12,7 +12,7 @@ public class ex03 {
 				count+=1;
 			} 
 		}
-		System.out.println("이미지파일 수 :"+count);
+		System.out.println("이미지파일 수 : "+count);
 		
 	}
 }
