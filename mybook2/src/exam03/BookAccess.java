@@ -10,7 +10,7 @@ public  abstract class BookAccess {
 	public abstract List<Book> findName(String name);
 	//isbn 조회
 	public abstract Book findIsbn(String isbn);
-	//전체 출력
+	//전체 조회
 	public abstract List<Book> findAll();
 		
 }

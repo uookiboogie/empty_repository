@@ -16,7 +16,7 @@ public class BookServiceFind implements BookService {
 		
 		//리스트에서 검색
 		List<Book> list = books.findName(content); 
-	
+	    //결과 출력
 		for(Book l : list) {
 			System.out.println(l);
 		}

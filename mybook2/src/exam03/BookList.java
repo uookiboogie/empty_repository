@@ -3,15 +3,15 @@ package exam03;
 import java.util.ArrayList;
 import java.util.List;
 /*
- * 여러건의 도서정보를 저장 -> DAO
+ * 여러건의 도서정보를 저장 -> DAO(데이터베이스)
  */
 public class BookList extends BookAccess  {
 	
 	ArrayList<Book> books = new ArrayList<Book>();
 
 	@Override
-	public void insert(Book friend) {
-		books.add(friend);
+	public void insert(Book book) {
+		books.add(book);
 	}
 
 	@Override
@@ -38,7 +38,11 @@ public class BookList extends BookAccess  {
 
 	@Override
 	public List<Book> findAll() {
-		return null;
+		List<Book> list= new ArrayList<Book>();
+		for(Book b: books) {
+			list.add(b);
+		}
+		return list;
 	}
 	
 

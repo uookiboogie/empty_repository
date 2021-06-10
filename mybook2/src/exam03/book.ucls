@@ -3,43 +3,43 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="exam03.BookApp2" project="mybook2" file="/mybook2/src/exam03/BookApp2.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="647" y="242"/>    
+    <position height="-1" width="-1" x="221" y="152"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="exam03.Book" project="mybook2" file="/mybook2/src/exam03/Book.java" binary="false" 
+  <class id="2" language="java" name="exam03.BookServiceFindAll" project="mybook2" 
+    file="/mybook2/src/exam03/BookServiceFindAll.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="594" y="152"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="exam03.Book" project="mybook2" file="/mybook2/src/exam03/Book.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="188" y="401"/>    
+    <position height="-1" width="-1" x="514" y="437"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="exam03.BookServiceInsert" project="mybook2" 
+  <class id="4" language="java" name="exam03.BookServiceInsert" project="mybook2" 
     file="/mybook2/src/exam03/BookServiceInsert.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="816" y="216"/>    
+    <position height="-1" width="-1" x="771" y="161"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="exam03.BookList" project="mybook2" file="/mybook2/src/exam03/BookList.java" 
+  <class id="5" language="java" name="exam03.BookList" project="mybook2" file="/mybook2/src/exam03/BookList.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="456" y="367"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="exam03.BookApp" project="mybook2" file="/mybook2/src/exam03/BookApp.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="624" y="127"/>    
+    <position height="-1" width="-1" x="228" y="394"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <interface id="6" language="java" name="exam03.BookService" project="mybook2" 
     file="/mybook2/src/exam03/BookService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="936" y="390"/>    
+    <position height="-1" width="-1" x="744" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </interface>  
   <class id="7" language="java" name="exam03.BookAccess" project="mybook2" file="/mybook2/src/exam03/BookAccess.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="373" y="152"/>    
+    <position height="-1" width="-1" x="402" y="179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="exam03.BookServiceFind" project="mybook2" 
     file="/mybook2/src/exam03/BookServiceFind.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="999" y="216"/>    
+    <position height="-1" width="-1" x="948" y="161"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,35 +75,39 @@
   </class>  
   <class id="9" language="java" name="exam03.BookServiceFindIsbn" project="mybook2" 
     file="/mybook2/src/exam03/BookServiceFindIsbn.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1216" y="209"/>    
+    <position height="-1" width="-1" x="965" y="322"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="10">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="11" name="books"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="13">    
-    <end type="SOURCE" refId="4"/>    
+  <generalization id="10">    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <realization id="14">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <realization id="15">    
+  <realization id="11">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="6"/>  
   </realization>  
-  <realization id="16">    
+  <association id="12">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="13" name="books"/>      
+      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="15">    
     <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="16">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="17">    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="6"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
