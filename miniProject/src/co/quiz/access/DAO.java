@@ -11,7 +11,7 @@ public class DAO {
 		String url = "jdbc:sqlite:C:/sqlite/db/quiz.db";
 		try {
 			conn= DriverManager.getConnection(url);
-			System.out.println("!!!QUIZ.DB연결성공!!!");
+			//System.out.println("!!!QUIZ.DB연결성공!!!");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

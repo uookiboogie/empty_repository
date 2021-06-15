@@ -1,10 +1,7 @@
 package co.quiz.model;
-/*
- * 회원가입
- * 로그인
- * 로그아웃
- */
+
 public class User {
+	private int no;
 	private String id;
 	private String pwd;
 	private String nickname;
@@ -12,6 +9,12 @@ public class User {
 	private int count;
 	private int score_avg;
 	
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	public String getId() {
 		return id;
 	}
