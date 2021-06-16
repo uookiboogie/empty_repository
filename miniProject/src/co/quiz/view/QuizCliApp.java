@@ -178,11 +178,13 @@ public class QuizCliApp {
 			switch (menunum) {
 			case 1:  quizInsert();  break;
 			case 2:  quizInfo();  break;
+			case 3:  quizDelete();  break;
 			case 4:  scoreReset();  break;
 			}
 		} while (menunum != 0);
 		System.out.println(loginuser.getNickname() + "님 잘가세요.");
 	}
+
 
 	private void quizInsert() {
 		Quiz quiz = new Quiz();
@@ -197,6 +199,22 @@ public class QuizCliApp {
 		List<Quiz> quizList=quizdao.selectAll();
 		for(Quiz quiz : quizList) {
 			System.out.println(quiz);
+		}
+	}
+	
+	private void quizDelete() {
+		int no = ScanUtil.readInt("삭제할 no를 입력하세요");
+		String string = ScanUtil.readStr("정말로 삭제 하시겠습니까?(y/n)");
+		while (true) {
+			if(string.equals("y") || string.equals("Y") || string.equals("n") || string.equals("N"))
+				break;
+			string = ScanUtil.readStr("잘못 입력하셨습니다.다시 입력해주세요.(y/n)");
+		}
+		if (string.equals("Y") || string.equals("y")) {
+		    quizdao.delete(no);
+		    System.out.println("삭제 되었습니다.");
+		}else {
+			System.out.println("삭제 취소 되었습니다.");
 		}
 	}
 

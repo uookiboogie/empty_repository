@@ -72,7 +72,18 @@ public class QuizDAO extends DAO implements QuizAccess{
 		}
 		return quiz;
 	}
-	
+
+	@Override
+	public void delete(int no) {
+		sql="delete from quiz where no = ?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, no);
+			int r=psmt.executeUpdate();
+			System.out.println(r+"건 문제삭제 완료");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
-	

@@ -13,4 +13,6 @@ public interface QuizAccess {
 	
 	public Quiz selectOne(int no); //db에서 랜덤으로 문제 중 가져 오기
 	
+	public void delete(int no); //db에서 no 넣고 문제 삭제하기
+	
 }
