@@ -29,5 +29,10 @@ public class Quiz {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
-	}	
+	}
+	@Override
+	public String toString() {
+		return "[no=" + no + ", field=" + field + ", question=" + question + ", answer=" + answer + "]";
+	}
+	
 }

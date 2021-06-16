@@ -11,6 +11,6 @@ public interface QuizAccess {
 	
 	public List<Quiz> selectAll(); //db에서 퀴즈 전체 리스트로 불러 오기
 	
-	public Quiz selectOne(int index); //db에서 랜덤으로 문제 중 뽑아오기
+	public Quiz selectOne(int no); //db에서 랜덤으로 문제 중 가져 오기
 	
 }

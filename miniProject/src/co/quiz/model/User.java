@@ -7,7 +7,8 @@ public class User {
 	private String nickname;
 	private String authority;
 	private int count;
-	private int score_avg;
+	private double scores;
+	private double score_avg;
 	
 	public int getNo() {
 		return no;
@@ -45,11 +46,22 @@ public class User {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public int getScore_avg() {
+	public double getScores() {
+		return scores;
+	}
+	public void setScores(double scores) {
+		this.scores = scores;
+	}
+	public double getScore_avg() {
 		return score_avg;
 	}
-	public void setScore_avg(int score_avg) {
+	public void setScore_avg(double score_avg) {
 		this.score_avg = score_avg;
+	}
+	@Override
+	public String toString() {
+		return "[id=" + id + ", pwd=" + pwd + ", nickname=" + nickname + ", authority=" + authority + ", count="
+				+ count + ", scores=" + scores + ", score_avg=" + score_avg + "]";
 	}
 	
 }

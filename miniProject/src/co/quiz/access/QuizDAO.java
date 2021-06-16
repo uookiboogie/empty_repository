@@ -51,7 +51,7 @@ public class QuizDAO extends DAO implements QuizAccess{
 		return qlist;		
 	}
 	
-	//인덱스로 문제 뽑기
+	//번호로 문제 뽑기
 	@Override
 	public Quiz selectOne(int no) {
 		sql="select * from quiz where no = ?";

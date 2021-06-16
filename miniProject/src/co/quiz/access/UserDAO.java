@@ -45,7 +45,8 @@ public class UserDAO extends DAO implements UserAccess{
 				user.setNickname(rs.getString("nickname"));
 				user.setAuthority(rs.getString("authority"));
 				user.setCount(rs.getInt("count"));
-				user.setScore_avg(rs.getInt("score_avg"));
+				user.setScores(rs.getDouble("scores"));
+				user.setScore_avg(rs.getDouble("score_avg"));
 				ulist.add(user);
 			}
 		} catch (SQLException e) {
@@ -69,7 +70,8 @@ public class UserDAO extends DAO implements UserAccess{
 				user.setNickname(rs.getString("nickname"));
 				user.setAuthority(rs.getString("authority"));
 				user.setCount(rs.getInt("count"));
-				user.setScore_avg(rs.getInt("score_avg"));
+				user.setScores(rs.getDouble("scores"));
+				user.setScore_avg(rs.getDouble("score_avg"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -92,7 +94,8 @@ public class UserDAO extends DAO implements UserAccess{
 				user.setNickname(rs.getString("nickname"));
 				user.setAuthority(rs.getString("authority"));
 				user.setCount(rs.getInt("count"));
-				user.setScore_avg(rs.getInt("score_avg"));
+				user.setScores(rs.getDouble("scores"));
+				user.setScore_avg(rs.getDouble("score_avg"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -100,8 +103,56 @@ public class UserDAO extends DAO implements UserAccess{
 		return user;
 	}
 	
+	@Override
+	public List<User> selectRankDesc() {
+		List<User> ulist =new ArrayList<>();
+		sql= "select*from quiz_user where count>=1 and authority='회원' order by score_avg DESC,count DESC";
+		try {
+			psmt=conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setNo(rs.getInt("no"));
+				user.setId(rs.getString("id"));
+				user.setPwd(rs.getString("password"));
+				user.setNickname(rs.getString("nickname"));
+				user.setAuthority(rs.getString("authority"));
+				user.setCount(rs.getInt("count"));
+				user.setScores(rs.getDouble("scores"));
+				user.setScore_avg(rs.getDouble("score_avg"));
+				ulist.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return ulist;
+	}
+	@Override
+	public void scoreReset() {
+		sql= "update quiz_user set count=null, scores=null, score_avg=null";
+		try {
+			psmt=conn.prepareStatement(sql);
+			int r= psmt.executeUpdate();
+			if(r==1) System.out.println("점수가 초기화 되었어요.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+		
 	@Override //퀴즈 점수 db에 저장
-	public void scoreUP(int count, int score_avg) {
-		sql= "update quiz_user set count=? and set score_avg where id=?";
+	public void scoreUP(User user) {
+		sql= "update quiz_user set count=?, scores=?, score_avg=? where id =?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, user.getCount());
+			psmt.setDouble(2, user.getScores());
+			psmt.setDouble(3, user.getScore_avg());
+			psmt.setString(4, user.getId());
+			int r= psmt.executeUpdate();
+			System.out.println("점수 "+r+"건 반영되었습니다.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
