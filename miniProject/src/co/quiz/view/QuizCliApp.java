@@ -27,8 +27,8 @@ public class QuizCliApp {
 		System.out.println();
 		System.out.println("------------------------------> " + loginuser.getNickname() + "님 환영합니다.");
 		System.out.println("=====================QUIZ game start===================\n");
-		System.out.println("|[1]퀴즈시작(랜덤문제) [2]나의정보보기 [3]전체랭킹보기|");
-		System.out.println("|[4]회원탈퇴하기                                      |\n");
+		System.out.println("|[1]퀴즈시작(랜덤문제) [2]퀴즈시작(분야고르기)        |");
+		System.out.println("|[3]전체랭킹보기 [4]나의정보보기 [5]회원탈퇴하기      |\n");
 		System.out.println("|[0]로그아웃===========================================");
 	}
 
@@ -106,18 +106,21 @@ public class QuizCliApp {
 	// 두번째 실행 화면
 	public void start_2() {
 		int menunum;
+		int islogout =0;
 		do {
 			menuTitle_2();
 			menunum = ScanUtil.readInt("선택");
 			switch (menunum) {
 			case 1: randomGame(); break;
-			case 2: myInfo(); break;
+			case 2: Game1(); break;
 			case 3: rankInfo(); break;
+			case 4: myInfo(); break;
+			case 5: islogout=dropOut(); break;
 			}
-		} while (menunum != 0);
+			if (menunum==0) break;
+		} while (islogout!=1);
 		System.out.println(loginuser.getNickname() + "님 잘가세요.");
 	}
-
 	private void randomGame() {
 		double score = 0;
 
@@ -128,6 +131,44 @@ public class QuizCliApp {
 		System.out.println("5문제 나감요~, 맞추면 20점 틀리면 -10점, 문제 스타뜨으~");
 		for (int number : randomNumbers) { // 5문제 출제, 정답 오답 처리. 점수 카운트 해
 			Quiz quiz = quizdao.selectOne(number);
+			System.out.println(quiz.getQuestion());
+			String answer = ScanUtil.readStr("답을 입력하세요");
+			if (quiz.getAnswer().equals(answer)) {
+				score += 20;
+				System.out.println("정답입니다 +20점");
+			} else {
+				score -= 10;
+				System.out.println("틀렸지롱 -10점");
+				System.out.println("답은 " + quiz.getAnswer() + " 입니다.");
+			}
+		}
+		User user = userdao.selectOne(loginuser.getId()); // 카운트,점수 업데이트
+		double avg = (user.getScores() + score) / (user.getCount() + 1);
+		user.setCount(user.getCount() + 1);
+		user.setScores(user.getScores() + score);
+		user.setScore_avg(avg);
+		userdao.scoreUP(user);
+	}
+	
+	private void Game1() {
+		double score = 0;
+		System.out.println("분야:일반상식, 역사, 넌센스");
+		String string = ScanUtil.readStr("풀고 싶은 분야를 적으세요");
+		
+		while (true) {
+			if(string.equals("일반상식") || string.equals("역사") || string.equals("넌센스"))
+				break;
+			string = ScanUtil.readStr("잘못 입력하셨습니다.다시 입력해주세요.");
+		}
+		List<Quiz> qlist=quizdao.selectOne2(string);
+		
+		HashSet<Integer> randomNumbers = new HashSet<>();
+		while (randomNumbers.size() < 5) { // 5개의 중복되지 않는 수 뽑기
+			randomNumbers.add((int)(Math.random() * (qlist.size())));
+		}
+		System.out.println("5문제 나감요~, 맞추면 20점 틀리면 -10점, 문제 스타뜨으~");
+		for (int number : randomNumbers) {
+			Quiz quiz = qlist.get(number);
 			System.out.println(quiz.getQuestion());
 			String answer = ScanUtil.readStr("답을 입력하세요");
 			if (quiz.getAnswer().equals(answer)) {
@@ -168,6 +209,23 @@ public class QuizCliApp {
 		}
 	}
 
+	private int dropOut() {
+		int no = loginuser.getNo();
+		String string = ScanUtil.readStr("정말로 삭제 하시겠습니까?(y/n)");
+		while (true) {
+			if(string.equals("y") || string.equals("Y") || string.equals("n") || string.equals("N"))
+				break;
+			string = ScanUtil.readStr("잘못 입력하셨습니다.다시 입력해주세요.(y/n)");
+		}
+		if (string.equals("Y") || string.equals("y")) {
+			userdao.delete(no);
+			System.out.println("탈퇴 되었습니다.");
+			return 1;
+		}else {
+			System.out.println("탈퇴 취소 되었습니다.");
+			return 0;
+		}
+	}
 //==============================================================================================================
 	// 세번째 실행 화면
 	public void start_3() {

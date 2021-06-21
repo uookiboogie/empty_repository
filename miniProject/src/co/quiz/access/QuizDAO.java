@@ -72,6 +72,27 @@ public class QuizDAO extends DAO implements QuizAccess{
 		}
 		return quiz;
 	}
+	@Override
+	public List<Quiz> selectOne2(String field) {
+		List<Quiz> qlist =new ArrayList<>();
+		sql="select * from quiz where field = ?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, field);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				Quiz quiz = new Quiz();
+				quiz.setNo(rs.getInt("no"));
+				quiz.setField(rs.getString("field"));
+				quiz.setQuestion(rs.getString("question"));
+				quiz.setAnswer(rs.getString("answer"));
+				qlist.add(quiz);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return qlist;
+	}
 
 	@Override
 	public void delete(int no) {
@@ -85,5 +106,6 @@ public class QuizDAO extends DAO implements QuizAccess{
 			e.printStackTrace();
 		}
 	}
+
 	
 }

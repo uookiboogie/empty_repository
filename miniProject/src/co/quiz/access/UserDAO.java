@@ -155,4 +155,16 @@ public class UserDAO extends DAO implements UserAccess{
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public void delete(int no) {
+		sql="delete from quiz_user where no = ?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, no);
+			int r=psmt.executeUpdate();
+			System.out.println(r+"건 회원탈퇴 완료");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

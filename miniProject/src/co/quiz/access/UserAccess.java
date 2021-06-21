@@ -22,4 +22,6 @@ public interface UserAccess {
 	//public User update(String id); //db에서 id 맞는 사람 회원 비밀번호 닉네임 수정.
 	
 	public void scoreUP(User user); //퀴즈 푼 뒤 점수 입력
+	
+	public void delete(int no); //db에서 no 넣고 user 삭제하기
 }
